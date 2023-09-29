@@ -34,17 +34,14 @@ var oops=0
 function checkAuthor(){
     console.log("Check the guess")
     hidden_author = document.getElementById("form1_pwd").value
-    guess_input = document.getElementById("form1_guess").value
-    //confirmed = confirm(guess_input)
-    
+    guess_input = document.getElementById("form1_guess").value 
+       
     if(hidden_author==guess_input){
-       // alert("You got it right")*/
         alert("You got it right")
         good++
 
     } else {
         
-        //alert("Sorry")*/
         alert("Sorry")
         oops++
     }
