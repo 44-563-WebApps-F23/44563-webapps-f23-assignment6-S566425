@@ -35,27 +35,26 @@ function checkAuthor(){
     out.innerHTML="Good Count: "+good+"<br>Oops Count: "+oops
 }
 </script>
-<div class="flex-container">
-    <img src="europe.jpg" width="100" height="100" alt="europe">
-    <button type="button" onclick="selectImage()" >Click to change image</button>
+<div class="container">
+    <img src="europe.jpg" alter="europe" width="100px" height="100px" onclick="selectImage()">
+    <!--<button type="button" onclick="selectImage()" >Click to change image</button>-->
 </div>
 <script>
-    var useImage=1
+    let useImage=1;
     function selectImage(){
+        var imageElement = document.querySelector('.container img');
         switch(useImage){
-            case 1:
-                image = '<img src="europe.jpg" alt="europe" width="100" height="100">';
-                document.getElementById("image")
-                document.getElementById("")
-                useImage++
+            case 1: //document.getElementById('Image1').src="Pennsylvania.jpg";
+                imageElement.src='Pennsylvania.jpg';
+                useImage=2;
                 break;
             case 2:
-                image = '<img src="Pennsylvania.jpg" width="100" height="100">';
-                useImage++
+                imageElement.src='europe.jpg';
+                useImage=3;
                 break; 
             case 3:
-                image = '<img src="Rajasthan.jpg" width="100" height="100">';
-                useImage==1
+                imageElement.src='Rajasthan.jpg';
+                useImage=1;
                 break;
         }
     }
