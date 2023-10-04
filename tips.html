@@ -24,17 +24,6 @@
 
     <p id="result">This text will be replaced by tips result</p>
 
-    <form>
-        <input type="radio" id="rg1_sum" name="calculation" value="sum" onclick="chooseOp()">
-        <label for="rg1_sum">sum</label></br>
-
-        <input type="radio" id="rg1_diff" name="calculation" value="difference" onclick="chooseOp()">
-        <label for="rg1_diff">diff</label></br>
-
-        <input type="radio" id="rg1_mult" name="calculation" value="product" onclick="chooseOp()">
-        <label for="rg1_mult">mult</label></br>
-    </form>
-    <p id="calculationResult">This text will be replaced by calculation result</p>
     <script>
 
         function tips() {
@@ -51,6 +40,19 @@
 
             displayElement.innerHTML = "Tip are : " + toShow;
         }
+    </script>
+    <form>
+        <input type="radio" id="rg1_sum" name="calculation" value="sum" onclick="chooseOp()">
+        <label for="rg1_sum">sum</label></br>
+
+        <input type="radio" id="rg1_diff" name="calculation" value="difference" onclick="chooseOp()">
+        <label for="rg1_diff">diff</label></br>
+
+        <input type="radio" id="rg1_mult" name="calculation" value="product" onclick="chooseOp()">
+        <label for="rg1_mult">mult</label></br>
+    </form>
+    <p id="calculationResult">This text will be replaced by calculation result</p> 
+    <script> 
 
         function chooseOp() {
             let calOutput = "";
