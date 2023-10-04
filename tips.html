@@ -33,17 +33,57 @@ function tips(){
         i++;
     }
     document.getElementById("result").innerHTML="Tips are:"+myOutput;
-    /*
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }*/
 }
 </script>
 
+<form>
+    <label for="form1_sum">Sum </label>
+    <input type ="radio" id="form1_sum" name="operation" value="sum" onClick="chooseOp()">
+    
+    <label for="form1_difference">Difference </label>
+    <input type ="radio" id="form1_difference" name="operation" value="difference" onClick="chooseOp()">
+
+    <label for="form1_product">Multi</label>
+    <input type ="radio" id="form1_product" name="operation" value="product" onClick="chooseOp()">
+</form>
+
+<p id="results"> of operations</p>
+<script>
+    function chooseOp(){
+        baseamount=parseFloat(document.getElementByName("form1_amount").value)
+        tip_percent=parseFloat(document.getElementByName("form1_tip").value)
+        output=document.getElementByType("operation");
+        let result =  document.getElementById("results");
+
+        let selectedOperation;
+        var data;
+        
+        output.forEach(radio => {
+            if(radio.checked){
+                selectedOperation=radio.data;
+            }
+        });
+
+        switch(selectedOperation){
+            case "sum":
+                data=baseamount + tip_percent;
+                break;
+
+            case "difference":
+                data = baseamount - tip_percent;
+                break;
+
+            case "product":
+                data= baseamount * tip_percent;
+                break;
+        }
+        results.innerHTML =  `result: ${data}`;
+    }
+
+</script>
+
+
 </body>
-</html> 
+</html>
+
+
