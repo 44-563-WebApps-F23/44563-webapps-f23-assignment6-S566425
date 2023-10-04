@@ -37,14 +37,13 @@ function checkAuthor(){
 </script>
 <div class="container">
     <img src="europe.jpg" alter="europe" width="100px" height="100px" onclick="selectImage()">
-    <!--<button type="button" onclick="selectImage()" >Click to change image</button>-->
 </div>
 <script>
     let useImage=1;
     function selectImage(){
         var imageElement = document.querySelector('.container img');
         switch(useImage){
-            case 1: //document.getElementById('Image1').src="Pennsylvania.jpg";
+            case 1: 
                 imageElement.src='Pennsylvania.jpg';
                 useImage=2;
                 break;
