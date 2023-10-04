@@ -1,89 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Functions in JS</title>
-    </head>
+
+<head>
+    <title>
+        Sri Vasavi
+    </title>
+</head>
+
 <body>
-<h1>Sri Vasavi shows tip amounts</h1>
-<h2>Getting input</h2>
 
-<form>
-    <label for="form1_amount">Enter base amount </label>
-    <input type ="number" id="form1_amount" name="form1_amount" min=10 max=50 step=2 value=50> <br>
+    <h2> shows tip amounts</h2>
 
-    <label for="form1_tip">Enter the tip percent </label>
-    <input type ="number" id="form1_tip" name="form1_tip" autofocus value="15"> <br>
+    <form>
+        <label for="baseamount">Enter base amount</label>
+        <input type="number" id="baseamount" name="baseamount" step=2 value=50> <br>
 
-    <input type="button" onclick="tips()" value="Show tip">
-</form>
+        <label for="tipamount">Enter the tip percent</label>
+        <input type="number" id="tipamount" name="tipamount" value=15> <br>
+
+        <input type="button" onclick="tips()" value="Show tip ">
+    </form>
 
 
-<p id="result">This is for results</p>
+    <p id="result">This text will be replaced by tips result</p>
 
-<script> 
+    <form>
+        <input type="radio" id="rg1_sum" name="calculation" value="sum" onclick="chooseOp()">
+        <label for="rg1_sum">sum</label></br>
 
-function tips(){
-    baseamount = parseFloat(document.getElementById("form1_amount").value)
-    tip_percent =parseFloat(document.getElementById("form1_tip").value)
-    let myOutput=" ";
-    let i=0;
-    while(i<5){
-        var tips = (baseamount*(tip_percent+i*4))/100;
-        myOutput = myOutput + (tip_percent + i * 4) + "% is" +tips.toFixed(2)+";     ";
-        i++;
-    }
-    document.getElementById("result").innerHTML="Tips are:"+myOutput;
-}
-</script>
+        <input type="radio" id="rg1_diff" name="calculation" value="difference" onclick="chooseOp()">
+        <label for="rg1_diff">diff</label></br>
 
-<form>
-    <label for="form1_sum">Sum </label>
-    <input type ="radio" id="form1_sum" name="operation" value="sum" onClick="chooseOp()">
-    
-    <label for="form1_difference">Difference </label>
-    <input type ="radio" id="form1_difference" name="operation" value="difference" onClick="chooseOp()">
+        <input type="radio" id="rg1_mult" name="calculation" value="product" onclick="chooseOp()">
+        <label for="rg1_mult">mult</label></br>
+    </form>
+    <p id="calculationResult">This text will be replaced by calculation result</p>
+    <script>
 
-    <label for="form1_product">Multi</label>
-    <input type ="radio" id="form1_product" name="operation" value="product" onClick="chooseOp()">
-</form>
+        function tips() {
+            let myOutput = "";
+            let toShow = "";
+            baseAmount = document.getElementById("baseamount").value
+            tipAmount = document.getElementById("tipamount").value
+            displayElement = document.getElementById("result")
 
-<p id="results"> of operations</p>
-<script>
-    function chooseOp(){
-        baseamount=parseFloat(document.getElementByName("form1_amount").value)
-        tip_percent=parseFloat(document.getElementByName("form1_tip").value)
-        output=document.getElementByType("operation");
-        let result =  document.getElementById("results");
-
-        let selectedOperation;
-        var data;
-        
-        output.forEach(radio => {
-            if(radio.checked){
-                selectedOperation=radio.data;
+            for (let i = 0; i < 5; i++) {
+                loopTipAmt = parseInt(tipAmount) + (i * 4)
+                toShow += loopTipAmt + "% is " + parseInt(baseAmount) * loopTipAmt / 100 + ";";
             }
-        });
 
-        switch(selectedOperation){
-            case "sum":
-                data=baseamount + tip_percent;
-                break;
-
-            case "difference":
-                data = baseamount - tip_percent;
-                break;
-
-            case "product":
-                data= baseamount * tip_percent;
-                break;
+            displayElement.innerHTML = "Tip are : " + toShow;
         }
-        results.innerHTML =  `result: ${data}`;
-    }
 
-</script>
+        function chooseOp() {
+            let calOutput = "";
+            let operation = "";
+            baseAmount = document.getElementById("baseamount").value
+            tipAmount = document.getElementById("tipamount").value
+            sumOpt = document.getElementById("rg1_sum").checked
+            diffOpt = document.getElementById("rg1_diff").checked
+            multOpt = document.getElementById("rg1_mult").checked
+            displayElement = document.getElementById("calculationResult")
 
+            if (sumOpt) {
+                operation = "sum";
+                calOutput = parseInt(baseAmount) + parseInt(tipAmount);
+            } else if (diffOpt) {
+                operation = "difference";
+                calOutput = parseInt(baseAmount) - parseInt(tipAmount);
+            } else {
+                operation = "product";
+                calOutput = parseInt(baseAmount) * parseInt(tipAmount);
+            }
+
+            displayElement.innerHTML = operation + " of " + baseAmount + " and " + tipAmount + " is " + calOutput;
+        }
+    </script>
 
 </body>
+
 </html>
-
-
