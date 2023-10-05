@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Cruise</title>
+        <title> Sri's Cruise</title>
     </head>
  
 <body>
 
-<h2> goes on a cruise </h2>
+<h2>Sri Vasavi goes on a cruise </h2>
 
 <form>
     <input type="checkbox" id="cb1_c" name="topping1"   
-      value="c" checked>
+      value="True" checked>
     <label for="cb1_c"> Shares cabin</label></br>
   
     <input type="checkbox" id="cb1_l" name="topping2" 
-       value="l">
+       value="True">
     <label for="cb1_l">Breakfast</label></br>
   
     <input type="checkbox" id="cb1_o" name="topping3"   
-       value="o" checked>
+       value="False" checked>
     <label for="cb1_o">Pool pass</label></br>
 
     <input type="button" onclick="selectCruise()" value="select a Cruise">
@@ -59,7 +59,7 @@ function updateCruise(){
     rates = document.getElementById("price").value
     myCruise["number of days"]=no_of_days;
     myCruise["price"]=rates;
-    result.innerHTML=JSON.stringify(myCruise)
+    output.innerHTML=JSON.stringify(myCruise)
 }
 
 </script>
