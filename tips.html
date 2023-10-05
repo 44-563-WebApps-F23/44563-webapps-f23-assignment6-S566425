@@ -2,14 +2,12 @@
 <html>
 
 <head>
-    <title>
-        Sri Vasavi
-    </title>
+    <title>My tips</title>
 </head>
 
 <body>
 
-    <h2> shows tip amounts</h2>
+    <h2> Sri Vasavi shows tip amounts</h2>
 
     <form>
         <label for="baseamount">Enter base amount</label>
@@ -22,7 +20,7 @@
     </form>
 
 
-    <p id="result">This text will be replaced by tips result</p>
+    <p id="result">This text tips result</p>
 
     <script>
 
@@ -35,7 +33,7 @@
 
             for (let i = 0; i < 5; i++) {
                 loopTipAmt = parseInt(tipAmount) + (i * 4)
-                toShow += loopTipAmt + "% is " + parseInt(baseAmount) * loopTipAmt / 100 + ";";
+                toShow += loopTipAmt + "% is " + parseInt(baseAmount) * loopTipAmt / 100 + ";  ";
             }
 
             displayElement.innerHTML = "Tip are : " + toShow;
